@@ -1,0 +1,146 @@
+/* 全局页面高度和滚动控制 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* 解决根节点撑开问题（React 的根组件） */
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 4em; 
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
+
+.results {
+  margin-top: 30px;
+}
+
+.result-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-title {
+  font-size: 1.5em;
+  color: #0056b3; /* 链接蓝色 */
+  margin-top: 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.result-title:hover {
+  text-decoration: underline;
+}
+
+/* Elasticsearch 高亮词的样式 */
+.result-title em, .snippet em {
+  font-weight: bold;
+  font-style: normal; /* 取消默认斜体 */
+  color: #c00; /* 标红显示 */
+  background-color: #ffe0b2; /* 浅橙色背景，使其更醒目 */
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.snippet {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.result-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+  padding: 3px 8px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* 分页样式 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  gap: 15px; /* 按钮和文字之间的间距 */
+}
+
+.page-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.page-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* 返回首页按钮 */
+.search-button {
+  display: block; /* 让按钮独占一行 */
+  width: fit-content; /* 宽度适应内容 */
+  margin: 0 auto; /* 居中 */
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #5a6268;
+}

@@ -1,0 +1,485 @@
+/* General HTML and Body Reset */
+html {
+  height: 100%;
+  font-size: 16px; /* Base for rem units */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Container Styling (Common for Home and Results Pages) --- */
+.container {
+  width: 100%;
+  max-width: 60rem; /* 960px */
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* --- Home Page Specific Styling --- */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 5rem); /* Adjust for margin top/bottom */
+  padding: 1.25rem;
+}
+
+.title {
+  font-size: 2.8rem; /* Slightly larger title */
+  text-align: center;
+  color: #202124;
+  margin-bottom: 2.5rem; /* More space below title */
+  font-weight: 600;
+}
+
+/* Search Bar (Keyword Search) */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 37.5rem; /* 600px */
+  gap: 1rem;
+  margin: 0 auto 2.5rem; /* Increased bottom margin */
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem; /* Slightly more padding */
+  font-size: 1.1rem; /* Larger font */
+  border: 1px solid #dfe1e5;
+  border-radius: 2rem; /* More rounded corners */
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  background-color: white;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 0.15rem #c8dafc; /* Slightly thicker focus ring */
+  border-color: #4285f4; /* Blue border on focus */
+}
+
+.search-button {
+  padding: 0.8rem 1.8rem; /* Adjusted padding */
+  background-color: #4285f4;
+  border: none;
+  border-radius: 2rem; /* More rounded corners */
+  color: white;
+  font-size: 1.1rem; /* Larger font */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-shrink: 0; /* Prevent shrinking on small screens */
+}
+
+.search-button:hover {
+  background-color: #357ae8;
+}
+
+/* --- Separator Styling --- */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 30rem;
+  margin: 2rem auto; /* Space above and below */
+  color: #777;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before {
+  margin-right: .5em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: .5em;
+}
+
+.divider span {
+  padding: 0 0.5em;
+  background-color: #f8f9fa; /* Match body background */
+}
+
+/* --- Upload Section Styling --- */
+.upload-section {
+  background-color: #fefefe;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08); /* Stronger shadow */
+  width: 100%;
+  max-width: 37.5rem;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px dashed #c8dafc; /* Dashed border for file upload feel */
+}
+
+.upload-title {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.file-input {
+  display: block; /* Take full width */
+  width: calc(100% - 2rem); /* Account for padding */
+  margin: 0 auto 1.5rem; /* Center and add space */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.3rem;
+  background-color: #f0f4f7; /* Light background */
+  cursor: pointer;
+}
+
+.file-input::-webkit-file-upload-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.2s;
+}
+
+.file-input::-webkit-file-upload-button:hover {
+  background-color: #0056b3;
+}
+
+.upload-button {
+  padding: 0.75rem 1.8rem;
+  background-color: #28a745; /* Green for upload */
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.2s;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.upload-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.selected-file-info {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* --- Results Page Specific Styling --- */
+.results-page {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.search-info {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.total-results-info {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.loading-message, .no-results-message {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 1.25rem; /* Gap between cards */
+  margin-top: 1.5rem;
+}
+
+.result-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem; /* Slightly more rounded */
+  padding: 1.25rem;
+  background-color: #fefefe;
+  box-shadow: 0 0.1875rem 0.5rem rgba(0, 0, 0, 0.06); /* Stronger shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-card:hover {
+  transform: translateY(-0.25rem); /* More pronounced lift */
+  box-shadow: 0 0.375rem 0.9rem rgba(0, 0, 0, 0.12);
+}
+
+.result-title {
+  font-size: 1.35rem; /* Slightly smaller for card view */
+  color: #0056b3;
+  margin: 0 0 0.6rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.result-title:hover {
+  text-decoration: underline;
+}
+
+/* Highlighting styles */
+.result-title em,
+.snippet em {
+  font-weight: bold;
+  font-style: normal;
+  color: #d9534f; /* A bolder red for highlights */
+  background-color: #fffacd; /* A softer yellow for background */
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.snippet {
+  font-size: 0.95rem; /* Slightly smaller snippet */
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0.8rem; /* More space below snippet */
+  flex-grow: 1; /* Allow snippet to take available space */
+}
+
+.result-tags {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap */
+  gap: 0.4rem; /* Gap between tags */
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+  padding: 0.2rem 0.6rem; /* More padding */
+  border-radius: 0.3rem;
+  font-size: 0.8rem; /* Slightly smaller tag font */
+  white-space: nowrap; /* Prevent tag text from breaking */
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0 1.5rem; /* More vertical space */
+  gap: 1.25rem;
+}
+
+.page-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem; /* More padding */
+  border: none;
+  border-radius: 0.4rem; /* Slightly more rounded */
+  cursor: pointer;
+  font-size: 1.05rem; /* Slightly larger font */
+  transition: background-color 0.3s ease;
+}
+
+.page-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.page-info {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Back to Home Button (on Results Page) */
+.search-button.back-home {
+  display: block;
+  width: fit-content;
+  margin: 2.5rem auto 0;
+  background-color: #6c757d;
+  padding: 0.8rem 2rem; /* Consistent padding */
+  font-size: 1.1rem;
+  border-radius: 2rem;
+}
+
+.search-button.back-home:hover {
+  background-color: #5a6268;
+}
+
+/* --- Detail Page Styling (Adjusted for consistency) --- */
+.detail-container {
+  padding: 2.5rem;
+  font-family: 'Arial', sans-serif;
+  max-width: 60rem; /* Consistent max-width */
+  margin: 2.5rem auto;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.1);
+}
+
+.detail-container h1 {
+  color: #202124;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.detail-container h2 {
+  color: #0056b3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.detail-container p {
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.detail-item {
+  margin-bottom: 1.5rem;
+  /* Removed dashed border for cleaner look, adjust if needed */
+  padding-bottom: 0.5rem;
+}
+
+.detail-item strong {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 1.5rem auto;
+    padding: 1rem;
+  }
+
+  .home-page {
+    min-height: calc(100vh - 3rem);
+  }
+
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .search-input,
+  .search-button {
+    width: 100%;
+  }
+
+  .upload-section {
+    padding: 1.5rem;
+  }
+
+  .upload-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .file-input {
+    width: calc(100% - 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .file-input::-webkit-file-upload-button {
+    padding: 0.6rem 1rem;
+    margin-right: 0.8rem;
+  }
+
+  .upload-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .selected-file-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+  }
+
+  .result-title {
+    font-size: 1.2rem;
+  }
+
+  .snippet {
+    font-size: 0.9rem;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .page-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .detail-container {
+    padding: 1.5rem;
+  }
+
+  .detail-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .detail-container h2 {
+    font-size: 1.4rem;
+  }
+}
